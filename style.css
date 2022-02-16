@@ -12,11 +12,6 @@
     background-color: rgb(236, 236, 236);
 }
 
-.__main{
-    max-height: 200px;
-}
-
-
 
 .button{
     color: white;
@@ -26,6 +21,10 @@
     width: 150px;
     height: 40px;
     background-color: #32985C;
+    transition: 200ms ease-in-out;
+}
+.button:hover{
+    background-color: #2a814f;
 }
 
 
@@ -57,3 +56,10 @@
 
 /* input styles */
 
+.input-item-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width:350px;
+    
+}
