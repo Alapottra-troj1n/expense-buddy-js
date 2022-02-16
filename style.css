@@ -2,9 +2,18 @@
 
 *{
     font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
 }
 
 /* global styles */
+input{
+    border: none;
+    border-radius: 3px;
+    background-color: rgb(221, 221, 221);
+    padding: 5px;
+}
+
+
 .__color-green{
     color: #32985C;
 }
@@ -38,19 +47,22 @@
 
 
 .__header-img{
-    width: 4%;
+    width: 50px;
 }
 
 /* image styles */
 
 .__img{
-    height: 700px !important;
+    max-height: 700px !important;
     overflow: hidden;
     
 }
 .__img img{
     object-fit: cover;
     object-position: center;
+}
+.__input-form{
+    max-height: 700px;
 }
 
 
