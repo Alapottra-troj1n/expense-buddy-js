@@ -53,16 +53,18 @@ input{
 /* image styles */
 
 .__img{
-    max-height: 700px !important;
-    overflow: hidden;
+    height: 100% !important;
+    width: 100%;
+    background-image: url(./img/image.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
     
 }
-.__img img{
-    object-fit: cover;
-    object-position: center;
-}
+
 .__input-form{
-    max-height: 700px;
+    height: 700px;
 }
 
 
@@ -74,4 +76,21 @@ input{
     justify-content: space-between;
     width:350px;
     
+}
+
+
+
+
+/* error-handle */
+#error-msg{
+    color: rgb(221, 64, 64);
+    font-weight: 600;
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .__img{
+        height: 400px !important;
+        
+    }
 }
