@@ -87,6 +87,11 @@ input{
     font-weight: 600;
     display: none;
 }
+#success-msg{
+    color: rgb(36, 146, 51);
+    font-weight: 600;
+    display: none;
+}
 
 @media (max-width: 768px) {
     .__img{

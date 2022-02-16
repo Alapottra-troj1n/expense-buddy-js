@@ -1,65 +1,70 @@
-const calcBtn = document.querySelector('#calc-btn');
+const calcBtn = document.querySelector("#calc-btn");
 
+calcBtn.addEventListener("click", function () {
+  //income balance
+  const incomeValue = getInputValue("income");
 
+  let totalExpense = getTotalExpenses();
 
+  //display total expenses
 
+  document.querySelector("#total-expense-value").innerText = totalExpense;
 
+  //display remaining balance
+  let balanceAfterExpense = incomeValue - totalExpense;
 
-
-
-
-calcBtn.addEventListener('click', function(){
-    //income balance
-    const incomeValue = getInputValue('income');
-
-    let totalExpense = getTotalExpenses();
-
-    //display total expenses
-
-    document.querySelector('#total-expense-value').innerText = totalExpense;
- 
-    
-
+  document.querySelector("#total-balance-value").innerText =
+    balanceAfterExpense;
 });
 
-//function to get input value by giving part of a id as a parameter
 
-function getInputValue(inputId){
 
-    const inputValueText = document.getElementById(inputId + '-input').value;
-    const inputValue = parseInt(inputValueText);
 
-  
-    
 
+
+//FUNCTION to get input value
+
+function getInputValue(inputId) {
+  const inputValueText = document.getElementById(inputId + "-input").value;
+  const inputValue = parseInt(inputValueText);
+  return inputValue;
 }
 
-//function to get total expense as a value
 
-function getTotalExpenses(){
 
-   //expenses
-   const foodValue =  getInputValue('food');
-   const rentValue = getInputValue('rent');
-   const clothesValue = getInputValue('cloth');
 
-   if(foodValue >= 0 && rentValue >= 0 && clothesValue >= 0){
+
+//FUNCTION to get total expense as a value
+
+function getTotalExpenses() {
+
+  //expenses
+
+  const foodValue = getInputValue("food");
+  const rentValue = getInputValue("rent");
+  const clothesValue = getInputValue("cloth");
+  const incomeValue = getInputValue("income");
+
+  //error-handling
+
+  if (
+    foodValue >= 0 &&
+    rentValue >= 0 &&
+    clothesValue >= 0 &&
+    incomeValue >= 0
+) {
 
     //total expense
+    document.querySelector("#error-msg").style.display = "none";
+    document.querySelector("#success-msg").style.display = "block";
+
     let totalExpenses = clothesValue + foodValue + rentValue;
 
-    return totalExpenses;     
+    return totalExpenses;
 
-   }else{
-
-        console.log('ops');
-        return 0;
-        
-   }
-   
-
-   
-
- 
-
+  } else {
+    document.querySelector("#success-msg").style.display = "none";
+    document.querySelector("#error-msg").style.display = "block";
+    return 0;
+  }
 }
