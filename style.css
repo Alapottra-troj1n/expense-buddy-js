@@ -32,8 +32,10 @@ input{
     background-color: #32985C;
     transition: 200ms ease-in-out;
 }
-.button:hover{
-    background-color: #2a814f;
+
+button:disabled{
+    background-color: #449c67bb;
+    color: rgb(201, 201, 201);
 }
 
 
