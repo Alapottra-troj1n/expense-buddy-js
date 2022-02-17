@@ -64,10 +64,19 @@ saveBtn.addEventListener("click", function(){
   const balanceValue = getTexttValue('total-balance');
 
   const balanceLeftAfterSavings = balanceValue - saveAmount;
+    if(balanceLeftAfterSavings >= 0){
+      document.querySelector('#total-left-value').innerText = balanceLeftAfterSavings;
+      document.querySelector("#error-msg-3").style.display = "none";
+      document.querySelector("#success-msg-2").style.display = "block";
+      document.querySelector("#error-msg-4").style.display = "none";
+    }else{
 
-  document.querySelector('#total-left-value').innerText = balanceLeftAfterSavings;
-  document.querySelector("#error-msg-3").style.display = "none";
-  document.querySelector("#success-msg-2").style.display = "block";
+      document.querySelector('#total-left-value').innerText = 0;
+      document.querySelector("#error-msg-4").style.display = "block";
+      document.querySelector("#error-msg-3").style.display = "none";
+      document.querySelector("#success-msg-2").style.display = "none";
+    }
+ 
   
   };
 
