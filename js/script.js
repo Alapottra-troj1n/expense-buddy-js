@@ -17,7 +17,7 @@ calcBtn.addEventListener("click", function () {
   let balanceAfterExpense = incomeValue - totalExpense;
 
 
-  //error handling a vaild balance will always be higher than 0
+  //error handling a vaild balance will always be higher than 0 so any negative value means that expense is higher than income
   if(balanceAfterExpense >= 0){
 
     document.querySelector("#total-balance-value").innerText =
@@ -38,8 +38,23 @@ calcBtn.addEventListener("click", function () {
 
 });
 
+
+//Savings Calculation
 saveBtn.addEventListener("click", function(){
   const saveAmountPercentage = getInputValue('save');
+
+  //Error Handling if percentage input is not a number or negative number
+
+  if(isNaN(saveAmountPercentage) || saveAmountPercentage < 0){
+    document.querySelector("#error-msg-3").style.display = "block";
+    document.querySelector("#success-msg-2").style.display = "none";
+
+  }else{
+
+
+  
+
+
   const totalIncome = getInputValue('income');
   let saveAmount = saveAmountPercentage/100 * totalIncome;
 
@@ -51,8 +66,10 @@ saveBtn.addEventListener("click", function(){
   const balanceLeftAfterSavings = balanceValue - saveAmount;
 
   document.querySelector('#total-left-value').innerText = balanceLeftAfterSavings;
+  document.querySelector("#error-msg-3").style.display = "none";
+  document.querySelector("#success-msg-2").style.display = "block";
   
-  
+  };
 
 });
 
@@ -68,6 +85,8 @@ function getInputValue(inputId) {
   const inputValue = parseInt(inputValueText);
   return inputValue;
 }
+
+//FUNCTION to get text value
 function getTexttValue(inputId) {
   const ValueText = document.getElementById(inputId + "-value").innerText;
   const Value = parseInt(ValueText);

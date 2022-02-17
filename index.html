@@ -75,10 +75,10 @@
                      <div class="text-center mt-2">
                         <button class="button text-center" id="calc-btn">Calculate</button>
                      </div>
-                     <div class="text-center mt-3">
-                        <p id="error-msg">Invaild Input ! Please Try Again</p>  
-                        <p id="error-msg-2">Error ! Expense is Higher Than Income</p>  
-                        <p id="success-msg">Calculation Sucessful</p>     
+                     <div class="text-center mt-2 mb-0">
+                        <p id="error-msg">&#10060; Invaild Input ! Please Try Again</p>  
+                        <p id="error-msg-2">&#10060; Error ! Expense is Higher Than Income</p>  
+                        <p id="success-msg">&#10004;Calculation Sucessful</p>     
                      </div>
 
 
@@ -90,14 +90,15 @@
                         <h5 class="fw-bold">Balance : <span id="total-balance-value">0</span>$</h5>
                     </div>
 
-                    <div class="savings-wrapper  text-center">
+                    <div class="savings-wrapper  text-center ">
                         <div>
                             <span class="me-2"> Save : </span><input type="number" value="20" id="save-input" class="me-3"><span>%</span> <button class="button ms-3 mt-3" disabled id="save-btn">Save</button>
                         </div>
-                        
+                        <p id="error-msg-3" class="mt-2 mb-0">&#10060; Error: Invaild Percentage Input !</p>  
+                        <p id="success-msg-2">&#10004;Calculation Sucessful</p> 
                     </div>
 
-                    <div class="total-savings-wrapper text-center mt-4">
+                    <div class="total-savings-wrapper text-center mt-2">
                         <h5 class="fw-bold">Savings Amount : <span id="total-savings-value">0</span>$</h5>
                     </div>
 

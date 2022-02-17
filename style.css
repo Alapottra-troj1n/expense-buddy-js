@@ -94,13 +94,23 @@ button:disabled{
     font-weight: 600;
     display: none;
 }
+#error-msg-3{
+    color: rgb(221, 64, 64);
+    font-weight: 600;
+    display: none;
+}
 #success-msg{
     color: rgb(36, 146, 51);
     font-weight: 600;
     display: none;
 }
+#success-msg-2{
+    color: rgb(36, 146, 51);
+    font-weight: 600;
+    display: none;
+}
 
-@media (max-width: 768px) {
+@media (max-width: 990px) {
     .__img{
         height: 400px !important;
         
