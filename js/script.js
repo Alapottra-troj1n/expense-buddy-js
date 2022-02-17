@@ -13,8 +13,20 @@ calcBtn.addEventListener("click", function () {
   //display remaining balance
   let balanceAfterExpense = incomeValue - totalExpense;
 
-  document.querySelector("#total-balance-value").innerText =
+
+  //error handling a vaild balance will always be higher than 0
+  if(balanceAfterExpense >= 0){
+
+    document.querySelector("#total-balance-value").innerText =
     balanceAfterExpense;
+
+  }else{
+    document.querySelector("#error-msg").style.display = "none";
+    document.querySelector("#error-msg-2").style.display = "block";
+    document.querySelector("#success-msg").style.display = "none";
+    document.querySelector("#total-balance-value").innerText = '0';
+  }
+
 });
 
 
@@ -56,6 +68,7 @@ function getTotalExpenses() {
 
     //total expense
     document.querySelector("#error-msg").style.display = "none";
+    document.querySelector("#error-msg-2").style.display = "none";
     document.querySelector("#success-msg").style.display = "block";
 
     let totalExpenses = clothesValue + foodValue + rentValue;
@@ -64,6 +77,7 @@ function getTotalExpenses() {
 
   } else {
     document.querySelector("#success-msg").style.display = "none";
+    document.querySelector("#error-msg-2").style.display = "none";
     document.querySelector("#error-msg").style.display = "block";
     return 0;
   }
