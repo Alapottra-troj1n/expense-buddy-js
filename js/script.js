@@ -8,20 +8,21 @@ calcBtn.addEventListener("click", function () {
   const incomeValue = getInputValue("income");
 
   let totalExpense = getTotalExpenses();
+  let totalExpenseFixed = totalExpense.toFixed(2);
 
   //display total expenses
 
-  document.querySelector("#total-expense-value").innerText = totalExpense;
+  document.querySelector("#total-expense-value").innerText = totalExpenseFixed;
 
   //display remaining balance
   let balanceAfterExpense = incomeValue - totalExpense;
-
+  let balanceAfterExpenseFixed = balanceAfterExpense.toFixed(2);    
 
   //error handling a vaild balance will always be higher than 0 so any negative value means that expense is higher than income
-  if(balanceAfterExpense >= 0){
+  if(balanceAfterExpenseFixed >= 0){
 
     document.querySelector("#total-balance-value").innerText =
-    balanceAfterExpense;
+    balanceAfterExpenseFixed;
     saveBtn.disabled = false;
 
   }else if(isNaN(incomeValue)){
@@ -57,15 +58,18 @@ saveBtn.addEventListener("click", function(){
 
   const totalIncome = getInputValue('income');
   let saveAmount = saveAmountPercentage/100 * totalIncome;
+  let saveAmountFixed = saveAmount.toFixed(2);
 
 
-  document.querySelector("#total-savings-value").innerText = saveAmount;
+  document.querySelector("#total-savings-value").innerText = saveAmountFixed;
 
   const balanceValue = getTexttValue('total-balance');
 
-  const balanceLeftAfterSavings = balanceValue - saveAmount;
-    if(balanceLeftAfterSavings >= 0){
-      document.querySelector('#total-left-value').innerText = balanceLeftAfterSavings;
+  let balanceLeftAfterSavings = balanceValue - saveAmount;
+  let balanceLeftAfterSavingsFixed = balanceLeftAfterSavings.toFixed(2);
+
+    if(balanceLeftAfterSavingsFixed >= 0){
+      document.querySelector('#total-left-value').innerText = balanceLeftAfterSavingsFixed;
       document.querySelector("#error-msg-3").style.display = "none";
       document.querySelector("#success-msg-2").style.display = "block";
       document.querySelector("#error-msg-4").style.display = "none";
@@ -91,14 +95,14 @@ saveBtn.addEventListener("click", function(){
 
 function getInputValue(inputId) {
   const inputValueText = document.getElementById(inputId + "-input").value;
-  const inputValue = parseInt(inputValueText);
+  const inputValue = parseFloat(inputValueText);
   return inputValue;
 }
 
 //FUNCTION to get text value
 function getTexttValue(inputId) {
   const ValueText = document.getElementById(inputId + "-value").innerText;
-  const Value = parseInt(ValueText);
+  const Value = parseFloat(ValueText);
   return Value;
 }
 
